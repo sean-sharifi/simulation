@@ -9,7 +9,7 @@ st.set_page_config(page_title="Trading Risk Simulator", layout="wide")
 st.markdown("""
     <style>
     .main { background-color: #f5f7f9; }
-    .stMetric { background-color: #dddddd; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .stMetric { color: #000; background-color: #dddddd; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     </style>
     """, unsafe_allow_html=True)
 
@@ -26,7 +26,7 @@ with st.sidebar:
     simulations = st.number_input("Number of Universes (Simulations)", value=1000, step=100)
     
     st.divider()
-    st.header("Strategy Edge eee")
+    st.header("Strategy Edge")
     
     win_rate = st.slider("Win Rate (%)", 0, 100, 52) / 100
     win_return = st.number_input("Take Profit (Win %) ", value=2.0, step=0.1) / 100
@@ -36,7 +36,7 @@ with st.sidebar:
     st.header("Risk Management")
     
     position_size = st.slider("Position Size (% of Capital)", 0.0, 100.0, 10.0) / 100
-    fee_rate = st.number_input("Trading Fee per Trade (%)", value=0.015, step=0.001) / 100
+    fee_rate = st.number_input("Trading Fee per Trade (%)", value=0.015, step=0.001) / 1000
     ruin_threshold = st.slider("Ruin Threshold (% Drawdown)", 0, 100, 40) / 100
 
 # --- SIMULATION ENGINE ---
