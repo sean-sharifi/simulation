@@ -221,8 +221,21 @@ g = expected_log_growth_per_trade(win_rate, position_size, tp, sl, fee_round)
 # METRICS
 # ============================================================
 col1, col2, col3, col4 = st.columns(4)
-delta_label = "High Risk" if risk_of_ruin > 10 else "Low/Moderate Risk"
-col1.metric("Risk of Ruin", f"{risk_of_ruin:.2f}%", delta=delta_label, delta_color="inverse")
+def risk_badge(ror_pct: float):
+    # pick thresholds however you like
+    if ror_pct < 1:
+        return "Low Risk", "risk-low"
+    elif ror_pct < 10:
+        return "Moderate Risk", "risk-med"
+    else:
+        return "High Risk", "risk-high"
+
+label, cls = risk_badge(risk_of_ruin)
+
+with col1:
+    st.metric("Risk of Ruin", f"{risk_of_ruin:.2f}%")
+    st.markdown(f'<span class="risk-pill {cls}">{label}</span>', unsafe_allow_html=True)
+
 col2.metric("Median Final Balance", f"${median_end:,.2f}")
 col3.metric("Expected Value (Mean)", f"${avg_end:,.2f}")
 col4.metric("Survival Rate", f"{100.0 - risk_of_ruin:.2f}%")
