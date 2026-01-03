@@ -36,7 +36,7 @@ with st.sidebar:
     st.header("Risk Management")
     
     position_size = st.slider("Position Size (% of Capital)", 0.0, 100.0, 10.0) / 100
-    fee_rate = st.number_input("Trading Fee per Trade (%)", value=0.015, step=0.001) / 1000
+    fee_rate = st.number_input("Trading Fee per Trade (%)", value=0.0015, step=0.0001) / 100
     ruin_threshold = st.slider("Ruin Threshold (% Drawdown)", 0, 100, 40) / 100
 
 # --- SIMULATION ENGINE ---
