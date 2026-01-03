@@ -26,7 +26,7 @@ with st.sidebar:
     simulations = st.number_input("Number of Universes (Simulations)", value=1000, step=100)
     
     st.divider()
-    st.header("Strategy Edge")
+    st.header("Strategy Edge eee")
     
     win_rate = st.slider("Win Rate (%)", 0, 100, 52) / 100
     win_return = st.number_input("Take Profit (Win %) ", value=2.0, step=0.1) / 100
