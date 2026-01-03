@@ -17,6 +17,18 @@ st.markdown(
         border-radius: 12px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.25);
         color: white;
+        .risk-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.risk-low { background: rgba(34,197,94,0.18); color: #22c55e; border: 1px solid rgba(34,197,94,0.35); }
+.risk-med { background: rgba(245,158,11,0.18); color: #f59e0b; border: 1px solid rgba(245,158,11,0.35); }
+.risk-high { background: rgba(239,68,68,0.18); color: #ef4444; border: 1px solid rgba(239,68,68,0.35); }
+
       }
       section[data-testid="stSidebar"] { background-color: #0f1626; }
     </style>
